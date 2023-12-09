@@ -1,0 +1,135 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+h2, h3 {
+    margin-bottom: 20px;
+}
+
+#wrapper{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bg-img{
+    top : -25%;
+    width: 100%;
+    height: 125%;
+    position: absolute;
+    z-index: -10;
+}
+
+.container{
+    width:100vw;
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.grid{
+    position: relative;
+    height: 70%;
+    width: 100%;
+}
+
+.square{
+    height: 8rem;
+    width: 10rem;
+    padding: 1em;
+    position: absolute;
+}
+
+.place-1{
+    top: 60%;
+    left: 20%;
+}
+
+.place-2{
+    top: 80%;
+    left: 31%;
+}
+
+.place-3{
+    top: 54%;
+    left: 50%;
+}
+
+.place-4{
+    top: 43%;
+    left: 3%;
+}
+
+.place-5{
+    top: 39%;
+    left: 32%;
+}
+
+.place-6{
+    top: 17%;
+    left: 77%;
+}
+
+.place-7{
+    top: 39%;
+    left: 69%;
+}
+
+.place-8{
+    top: 21%;
+    left: 14%;
+}
+
+.place-9{
+    top: 24%;
+    left: 52%;
+}
+
+.hole{
+    width: 20%;
+    position: absolute;
+}
+.mole{
+    background-image: url("./Images/before.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top center;
+}
+.gotcha{
+    background-image: url("./Images/after.png");
+    background-size: contain; 
+    background-position: center 32px;
+    background-repeat: no-repeat;
+}
+.shadow {
+    position: absolute;
+    width: 100%;
+    height: 15%;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    background-color: rgb(241, 178, 125);
+    border-radius: 50%;
+}
+
+
+
+.square {
+    /* ...existing styles... */
+    transition: transform 0.2s;
+}
+
+.square:hover {
+    transform: scale(1.05); 
+}
