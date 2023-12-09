@@ -4,11 +4,46 @@ let timeLeft = document.getElementById('timeLeft');
 let score = document.getElementById('score');
 let startButton = document.getElementById('startGame');
 
+let restartButton = document.getElementById('restartGame');
+let gameOverModal = document.getElementById('gameOverModal');
+let finalScore = document.getElementById('finalScore');
+let playAgainButton = document.getElementById('playAgain');
+
 let result = 0;
 let hitPositionID = null;
 let speed = null;
 let currTime = 60;
 let countTimeID;
+
+function showGameOverModal() {
+    finalScore.textContent = result;
+    gameOverModal.style.display = 'flex';
+
+    // Hide the hole and squares when the game ends
+    document.querySelectorAll('.hole, .square').forEach(element => {
+        element.style.display = 'none';
+    });
+}
+
+function restartGame() {
+    // Show the hole and squares when restarting the game
+    document.querySelectorAll('.hole, .square').forEach(element => {
+        element.style.display = 'block';
+    });
+
+    gameOverModal.style.display = 'none';
+    result = 0;
+    hitPositionID = null;
+    currTime = 60;
+    score.textContent = result;
+    timeLeft.textContent = currTime;
+    clearInterval(countTimeID);
+    clearInterval(speed);
+    startButton.style.display = 'block';
+    restartButton.style.display = 'none';
+}
+
+playAgainButton.addEventListener('click', restartGame);
 
 squares.forEach(function(square) {
     square.addEventListener('mousedown', function() {
@@ -48,7 +83,7 @@ function increaseSpeed() {
 }
 
 function moveMole() {
-    speed = setInterval(randomSquare, 500);
+    speed = setInterval(randomSquare, 600);
 }
 
 function countDown() {
@@ -57,7 +92,7 @@ function countDown() {
     if (currTime === 0) {
         clearInterval(countTimeID);
         clearInterval(speed);
-        alert("Game Over! Your score is: " + result);
+        showGameOverModal();
     }
 }
 
@@ -66,3 +101,6 @@ startButton.addEventListener('click', function() {
     countTimeID = setInterval(countDown, 1000);
     this.style.display = 'none';
 });
+
+
+
